@@ -1,22 +1,16 @@
 import { useCounter, useFetch } from "../hooks";
 import { LoadingQuote } from "./LoadingQuote";
 import { Quote } from "./Quote";
-import './styles.css';
+// import "./styles.css";
 
 export const MultipleCustomHooks = () => {
     const {counter, increment} = useCounter(1);
-
     const apiUrl = `https://api.breakingbadquotes.xyz/v1/quotes/${counter}`;
-
     const { data, isLoading, hasErros} = useFetch(apiUrl);
     // console.log({ data, isLoading, hasErros});
     const { author, quote } = !!data && data[0];
 
     // console.log("data:", data);
-
-
-
-
 
   return (
     <div className="contenedor">
@@ -24,7 +18,8 @@ export const MultipleCustomHooks = () => {
 
       <hr />
       
-      <button onClick={() => increment(1)} className="btn btn-primary">
+      <button 
+      onClick={() => increment(1)} className="btn btn-primary">
         Nex Quot
       </button>
 
